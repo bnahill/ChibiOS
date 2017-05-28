@@ -53,7 +53,10 @@
  * @name    Platform identification macros
  * @{
  */
-#if defined(STM32F745xx) || defined(__DOXYGEN__)
+#if defined(STM32F722xx) || defined(__DOXYGEN__)
+#define PLATFORM_NAME           "STM32F722 Very High Performance with DSP and FPU"
+
+#elif defined(STM32F745xx)
 #define PLATFORM_NAME           "STM32F745 Very High Performance with DSP and FPU"
 
 #elif defined(STM32F746xx)

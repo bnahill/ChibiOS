@@ -35,6 +35,37 @@
 #error "the constant CORTEX_NUM_VECTORS must be between 8 and 240 inclusive"
 #endif
 
+void prvGetRegistersFromStack( uint32_t *pulFaultStackAddress )
+{
+/* These are volatile to try and prevent the compiler/linker optimising them
+away as the variables never actually get used.  If the debugger won't show the
+values of the variables, make them global my moving their declaration outside
+of this function. */
+static volatile uint32_t r0;
+static volatile uint32_t r1;
+static volatile uint32_t r2;
+static volatile uint32_t r3;
+static volatile uint32_t r12;
+static volatile uint32_t lr; /* Link register. */
+static volatile uint32_t pc; /* Program counter. */
+static volatile uint32_t psr;/* Program status register. */
+
+    r0 = pulFaultStackAddress[ 0 ];
+    r1 = pulFaultStackAddress[ 1 ];
+    r2 = pulFaultStackAddress[ 2 ];
+    r3 = pulFaultStackAddress[ 3 ];
+
+    r12 = pulFaultStackAddress[ 4 ];
+    lr = pulFaultStackAddress[ 5 ];
+    pc = pulFaultStackAddress[ 6 ];
+    psr = pulFaultStackAddress[ 7 ];
+
+    /* When the following line is hit, the variables contain the register values. */
+    for( ;; );
+}
+
+
+
 /**
  * @brief   Unhandled exceptions handler.
  * @details Any undefined exception vector points to this function by default.
@@ -46,6 +77,17 @@
 void _unhandled_exception(void) {
 /*lint -restore*/
 
+    __asm volatile
+    (
+        " tst lr, #4                                                \n"
+        " ite eq                                                    \n"
+        " mrseq r0, msp                                             \n"
+        " mrsne r0, psp                                             \n"
+        " ldr r1, [r0, #24]                                         \n"
+        " ldr r2, handler2_address_const                            \n"
+        " bx r2                                                     \n"
+        " handler2_address_const: .word prvGetRegistersFromStack    \n"
+    );
   while (true) {
   }
 }

@@ -822,6 +822,28 @@
 /** @} */
 
 /**
+ * @name    SAI peripherals specific RCC operations
+ * @{
+ */
+/**
+ * @brief   Enables the SAI1 peripheral clock.
+ *
+ * @param[in] lp        low power enable flag
+ *
+ * @api
+ */
+#define rccEnableSAI1(lp) rccEnableAPB2(RCC_APB2ENR_SAI1EN, lp)
+
+/**
+ * @brief   Enables the SAI2 peripheral clock.
+ *
+ * @param[in] lp        low power enable flag
+ *
+ * @api
+ */
+#define rccEnableSAI2(lp) rccEnableAPB2(RCC_APB2ENR_SAI2EN, lp)
+
+/**
  * @name    SPI peripherals specific RCC operations
  * @{
  */
