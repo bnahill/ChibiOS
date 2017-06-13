@@ -161,6 +161,22 @@
 - RT:  Merged RT4.
 - NIL: Merged NIL2.
 - NIL: Added STM32F7 demo.
+- HAL: Duplicated variable definition in STM32 RTCv1 driver (bug #845)
+       (backported to 16.1.9).
+- HAL: Fixed wrong ARR initialization in STM32 GPT driver (bug #843)(backported
+       to 16.1.9).
+- HAL: Fixed wrong configuration in STM32L4xx GPT-ADC demo (bug #842)(backported
+       to 16.1.9).
+- HAL: Fixed invalid DMA channels for STM32F334 ADC2 (bug #840)(backported
+       to 16.1.9).
+- HAL: Fixed invalid number of elements in STM32F3xx EXT demo (bug #839)
+       (backported to 16.1.9).
+- HAL: Fixed dependency to kernel in uart lld (v1) (bug #838)(backported
+       to 16.1.9).
+- HAL: Fixed issue with not supported LIN on STM32F070xB (bug #837)(backported
+       to 16.1.9).
+- HAL: Fixed missing SAI clock definitions (bug #836).
+- HAL: Fixed missing DCKFG1 fields (bug #835).
 - HAL: Fixed STM32 OTGv1 number of endpoints (bug #833)(backported to 16.1.8).
 - HAL: Fixed transaction end problem with STM32 OTGv1 driver (bug #832)
        (backported to 16.1.8).
@@ -171,6 +187,8 @@
        to 16.1.8).
 - HAL: Fixed invalid SDC OCR initialization value (bug #826)(backported
        to 16.1.8).
+- HAL: Fixed SPI operations silently drop length bits (bug #825)(backported
+       to 16.1.9).
 - HAL: Fixed osThreadSetPriority() returns old priority instead of a status
        code (bug #823)(backported to 16.1.8).
 - HAL: Fixed problem in rtcSTM32SetPeriodicWakeup() (bug #821)(backported
@@ -247,6 +265,7 @@
        (backported to 16.1.6).
 - HAL: Fixed STM32F105 port not compiling (bug #782)
        (backported to 16.1.6, 3.0.6, 2.6.10).
+- HAL: Fixed I2Cv1 Freeze when started twice (bug #781)(backported to 16.1.9).
 - HAL: Fixed wrong registry for STM32F205xx and STM32F215xx port 
        (bug #780)(backported to 16.1.6, 3.0.6).
 - HAL: Fixed wrong HSE checks and PLL2 enable switch in STM32F105 and

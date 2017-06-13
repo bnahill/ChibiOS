@@ -41,6 +41,7 @@
 #define STM32_PVD_ENABLE                    FALSE
 #define STM32_PLS                           STM32_PLS_LEV0
 #define STM32_HSI16_ENABLED                 TRUE
+#define STM32_HSI16_DIVIDER_ENABLED         FALSE
 #define STM32_LSI_ENABLED                   FALSE
 #define STM32_HSE_ENABLED                   FALSE
 #define STM32_LSE_ENABLED                   TRUE
@@ -168,8 +169,7 @@
 #define STM32_SERIAL_USE_LPUART1            FALSE
 #define STM32_SERIAL_USART1_PRIORITY        3
 #define STM32_SERIAL_USART2_PRIORITY        3
-#define STM32_SERIAL_UART4_PRIORITY         3
-#define STM32_SERIAL_UART5_PRIORITY         3
+#define STM32_SERIAL_USART3_8_PRIORITY      3
 #define STM32_SERIAL_LPUART1_PRIORITY       3
 
 /*

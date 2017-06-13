@@ -66,10 +66,10 @@ static void hal_lld_backup_domain_init(void) {
 #if STM32_LSE_ENABLED
 #if defined(STM32_LSE_BYPASS)
   /* LSE Bypass.*/
-  RCC->BDCR |= RCC_BDCR_LSEON | RCC_BDCR_LSEBYP;
+  RCC->BDCR |= STM32_LSEDRV | RCC_BDCR_LSEON | RCC_BDCR_LSEBYP;
 #else
   /* No LSE Bypass.*/
-  RCC->BDCR |= RCC_BDCR_LSEON;
+  RCC->BDCR |= STM32_LSEDRV | RCC_BDCR_LSEON;
 #endif
   while ((RCC->BDCR & RCC_BDCR_LSERDY) == 0)
     ;                                       /* Waits until LSE is stable.   */
@@ -262,15 +262,12 @@ void stm32_clock_init(void) {
   /* DCKCFGR1 register initialization, note, must take care of the _OFF
      pseudo settings.*/
   {
-    uint32_t dckcfgr1 = 0;
+    uint32_t dckcfgr1 = STM32_PLLI2SDIVQ | STM32_PLLSAIDIVQ | STM32_PLLSAIDIVR;
 #if STM32_SAI2SEL != STM32_SAI2SEL_OFF
     dckcfgr1 |= STM32_SAI2SEL;
 #endif
 #if STM32_SAI1SEL != STM32_SAI1SEL_OFF
     dckcfgr1 |= STM32_SAI1SEL;
-#endif
-#if STM32_PLLSAIDIVR != STM32_PLLSAIDIVR_OFF
-    dckcfgr1 |= STM32_PLLSAIDIVR;
 #endif
     RCC->DCKCFGR1 = dckcfgr1;
   }
