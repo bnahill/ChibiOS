@@ -298,6 +298,23 @@
 #define STM32_SPI6_TX_DMA_MSK               (STM32_DMA_STREAM_ID_MSK(2, 5))
 #define STM32_SPI6_TX_DMA_CHN               0x00100000
 
+
+/* SAI attributes */
+#define STM32_HAS_SAI1                      TRUE
+#define STM32_SAI1A_DMA_MASK                (STM32_DMA_STREAM_ID_MASK(2, 1) | \
+                                             STM32_DMA_STREAM_ID_MASK(2, 3))
+#define STM32_SAI1A_DMA_CHN                 0x00000000
+#define STM32_SAI1B_DMA_MASK                (STM32_DMA_STREAM_ID_MASK(2, 4) | \
+                                             STM32_DMA_STREAM_ID_MASK(2, 5))
+#define STM32_SAI1B_DMA_CHN                 0x00010000
+
+#define STM32_HAS_SAI2                      TRUE
+#define STM32_SAI2A_DMA_MASK                (STM32_DMA_STREAM_ID_MASK(2, 4))
+#define STM32_SAI2A_DMA_CHN                 0x00030000
+#define STM32_SAI2B_DMA_MASK                (STM32_DMA_STREAM_ID_MASK(2, 6) | \
+                                             STM32_DMA_STREAM_ID_MASK(2, 7))
+#define STM32_SAI2B_DMA_CHN                 0x03000000
+
 /* TIM attributes.*/
 #define STM32_TIM_MAX_CHANNELS              6
 
