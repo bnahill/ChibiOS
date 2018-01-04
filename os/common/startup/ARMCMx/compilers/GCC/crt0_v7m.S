@@ -162,7 +162,7 @@
                 .syntax unified
                 .cpu    cortex-m3
 #if CRT0_INIT_FPU == TRUE
-                .fpu    fpv4-sp-d16
+                .fpu    fpv5-sp-d16
 #else
                 .fpu    softvfp
 #endif

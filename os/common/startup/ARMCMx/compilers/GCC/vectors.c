@@ -60,6 +60,8 @@ static volatile uint32_t psr;/* Program status register. */
     pc = pulFaultStackAddress[ 6 ];
     psr = pulFaultStackAddress[ 7 ];
 
+    (r0); (r1); (r2); (r3); (r12); (lr); (pc); (psr);
+
     /* When the following line is hit, the variables contain the register values. */
     for( ;; );
 }

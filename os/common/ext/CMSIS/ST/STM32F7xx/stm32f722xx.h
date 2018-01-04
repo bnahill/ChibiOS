@@ -1356,24 +1356,41 @@ typedef struct
 #define TIM11               ((TIM_TypeDef *) TIM11_BASE)
 #define SPI5                ((SPI_TypeDef *) SPI5_BASE)
 #define SPI6                ((SPI_TypeDef *) SPI6_BASE)
-#define SAI1                ((SAI_TypeDef *) SAI1_BASE)
-#define SAI2                ((SAI_TypeDef *) SAI2_BASE)
+extern SAI_TypeDef SAI1;
+extern SAI_TypeDef SAI2;
+//#define SAI1                ((SAI_TypeDef *) SAI1_BASE)
+//#define SAI2                ((SAI_TypeDef *) SAI2_BASE)
+extern SAI_Block_TypeDef SAI1_Block_A;
+extern SAI_Block_TypeDef SAI1_Block_B;
+extern SAI_Block_TypeDef SAI2_Block_A;
+extern SAI_Block_TypeDef SAI2_Block_B;
+/*
 #define SAI1_Block_A        ((SAI_Block_TypeDef *)SAI1_Block_A_BASE)
 #define SAI1_Block_B        ((SAI_Block_TypeDef *)SAI1_Block_B_BASE)
 #define SAI2_Block_A        ((SAI_Block_TypeDef *)SAI2_Block_A_BASE)
 #define SAI2_Block_B        ((SAI_Block_TypeDef *)SAI2_Block_B_BASE)
+*/
 #define LTDC                ((LTDC_TypeDef *)LTDC_BASE)
 #define LTDC_Layer1         ((LTDC_Layer_TypeDef *)LTDC_Layer1_BASE)
 #define LTDC_Layer2         ((LTDC_Layer_TypeDef *)LTDC_Layer2_BASE)
-#define GPIOA               ((GPIO_TypeDef *) GPIOA_BASE)
-#define GPIOB               ((GPIO_TypeDef *) GPIOB_BASE)
-#define GPIOC               ((GPIO_TypeDef *) GPIOC_BASE)
-#define GPIOD               ((GPIO_TypeDef *) GPIOD_BASE)
-#define GPIOE               ((GPIO_TypeDef *) GPIOE_BASE)
-#define GPIOF               ((GPIO_TypeDef *) GPIOF_BASE)
-#define GPIOG               ((GPIO_TypeDef *) GPIOG_BASE)
-#define GPIOH               ((GPIO_TypeDef *) GPIOH_BASE)
-#define GPIOI               ((GPIO_TypeDef *) GPIOI_BASE)
+extern GPIO_TypeDef _GPIOA;
+extern GPIO_TypeDef _GPIOB;
+extern GPIO_TypeDef _GPIOC;
+extern GPIO_TypeDef _GPIOD;
+extern GPIO_TypeDef _GPIOE;
+extern GPIO_TypeDef _GPIOF;
+extern GPIO_TypeDef _GPIOG;
+extern GPIO_TypeDef _GPIOH;
+extern GPIO_TypeDef _GPIOI;
+#define GPIOA               (&_GPIOA)
+#define GPIOB               (&_GPIOB)
+#define GPIOC               (&_GPIOC)
+#define GPIOD               (&_GPIOD)
+#define GPIOE               (&_GPIOE)
+#define GPIOF               (&_GPIOF)
+#define GPIOG               (&_GPIOG)
+#define GPIOH               (&_GPIOH)
+#define GPIOI               (&_GPIOI)
 #define GPIOJ               ((GPIO_TypeDef *) GPIOJ_BASE)
 #define GPIOK               ((GPIO_TypeDef *) GPIOK_BASE)
 #define CRC                 ((CRC_TypeDef *) CRC_BASE)

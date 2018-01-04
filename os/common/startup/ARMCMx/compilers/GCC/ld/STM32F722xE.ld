@@ -33,7 +33,7 @@ MEMORY
     flash5  : org = 0x00000000, len = 0
     flash6  : org = 0x00000000, len = 0
     flash7  : org = 0x00000000, len = 0
-    ram0    : org = 0x20010000, len = 176k      /* SRAM1 + SRAM2 */
+    ram0    : org = 0x20010000, len = 192k      /* SRAM1 + SRAM2 */
     ram1    : org = 0x20010000, len = 176k      /* SRAM1 */
     ram2    : org = 0x2003C000, len = 16k       /* SRAM2 */
     ram3    : org = 0x20000000, len = 64k       /* DTCM-RAM */
